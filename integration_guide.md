@@ -30,7 +30,7 @@
 
 ```
 integratedReactNativeProject/
-├── android/   # this will store the existing android project 
+├── android/   # this will store the existing android project
 ├── index.js                           # React Native entry point
 ├── babel.config.js                    # Babel configuration
 ├── metro.config.js                    # Metro bundler config
@@ -142,9 +142,6 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 ### Step 3: Verify Installation
 
 ```bash
-# Check Android SDK installation
-$ANDROID_HOME/tools/bin/sdkmanager --list | grep "Android SDK"
-
 # Verify Java version
 java -version
 
