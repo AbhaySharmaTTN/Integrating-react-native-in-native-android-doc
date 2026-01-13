@@ -143,6 +143,9 @@ yarn install
 
 ### Step 2: Configure Android Environment
 
+To set up environment for android, react native
+refer this: [Set up your environment](https://reactnative.dev/docs/set-up-your-environment?os=macos)
+
 Ensure the following environment variables are set:
 
 ```bash
