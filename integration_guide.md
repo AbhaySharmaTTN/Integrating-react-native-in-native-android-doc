@@ -2,11 +2,13 @@
 
 ## Integrating React Native into Native Android Application
 
-**Project Name:** ManageAppHost  
-**React Native Version:** 0.83.1  
-**Target SDK:** Android 14+ (API 36+)  
-**Minimum SDK:** Android 7 (API 24+)  
-**Java Version:** 17
+| Property                 | Value                 |
+| ------------------------ | --------------------- |
+| **Project Name**         | ManageAppHost         |
+| **React Native Version** | 0.83.1                |
+| **Target SDK**           | Android 14+ (API 36+) |
+| **Minimum SDK**          | Android 7 (API 24+)   |
+| **Java Version**         | 17                    |
 
 ---
 
@@ -61,7 +63,7 @@ integratedReactNativeProject/
 
 ### Prerequisites
 
-**This integration was done with the default version used created by Android Studio**
+This integration was done with the default version used created by Android Studio
 
 - **Node.js:** >= 20
 - **Yarn**
@@ -143,8 +145,7 @@ yarn install
 
 ### Step 2: Configure Android Environment
 
-To set up environment for android, react native
-refer this: [Set up your environment](https://reactnative.dev/docs/set-up-your-environment?os=macos)
+To set up environment for android, react native refer this: [Set up your environment](https://reactnative.dev/docs/set-up-your-environment?os=macos)
 
 Ensure the following environment variables are set:
 
@@ -183,12 +184,16 @@ module.exports = {
 };
 ```
 
+---
+
 ### 2. **metro.config.js**
 
 ```javascript
 const { getDefaultConfig } = require("@react-native/metro-config");
 module.exports = getDefaultConfig(__dirname);
 ```
+
+---
 
 ### 3. **react-native.config.js**
 
@@ -199,6 +204,8 @@ module.exports = {
   assets: ["./node_modules/<path-to-sdk>/src/assets/fonts"],
 };
 ```
+
+---
 
 ### 4. **android/build.gradle**
 
@@ -229,6 +236,8 @@ plugins {
 }
 ```
 
+---
+
 ### 5. **android/app/build.gradle**
 
 App-level Gradle configuration.
@@ -240,6 +249,7 @@ plugins {
   ...
   id("com.facebook.react")
 }
+
 android {
     namespace 'com.example.naitveandroidma'
     compileSdk 36
@@ -256,9 +266,11 @@ android {
         sourceCompatibility JavaVersion.VERSION_17 // version 17
         targetCompatibility JavaVersion.VERSION_17 // version 17
     }
+
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.toString() // version 17
     }
+
     java {
         toolchain {
             languageVersion = JavaLanguageVersion.of(17)
@@ -272,10 +284,13 @@ dependencies {
     implementation("com.facebook.react:react-android")
     implementation("com.facebook.react:hermes-android")
 }
+
 react {
     autolinkLibrariesWithApp()
 }
 ```
+
+---
 
 ### 6. **settings.gradle**
 
@@ -301,7 +316,9 @@ pluginManagement {
 }
 
 plugins { id("com.facebook.react.settings") }
+
 extensions.configure(com.facebook.react.ReactSettingsExtension){ ex -> ex.autolinkLibrariesFromCommand() }
+
 includeBuild("../node_modules/@react-native/gradle-plugin")
 
 dependencyResolutionManagement {
@@ -314,14 +331,14 @@ dependencyResolutionManagement {
 
 rootProject.name = "NaitveAndroidMA"
 include ':app'
-
 ```
+
+---
 
 ### 7. **gradle.properties**
 
-```
+```properties
 # add these
-
 reactNativeArchitectures=armeabi-v7a,arm64-v8a,x86,x86_64
 newArchEnabled=true
 hermesEnabled=true
@@ -336,7 +353,6 @@ hermesEnabled=true
 Extends `ReactActivity` to host React Native components.
 
 ```kotlin
-
 import android.os.Bundle
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
@@ -375,9 +391,11 @@ class MyReactActivity : ReactActivity() {
 - `accesstoken`: Token needed for authentication in Manage App
 - Can add additional props as needed
 
+---
+
 ### 2. **Native Modules** - Bridge Communication
 
-### ReactActivityModule.kt
+#### ReactActivityModule.kt
 
 Provides native functionality accessible from React.
 
@@ -402,7 +420,9 @@ class ReactActivityModule(private val reactContext: ReactApplicationContext)
 
 - `closeReactNative()`: Closes the React Native Activity and returns to native app
 
-### ReactActivityPackage.kt
+---
+
+#### ReactActivityPackage.kt
 
 Registers the native module with React Native.
 
@@ -426,12 +446,13 @@ class ReactActivityPackage: ReactPackage {
 }
 ```
 
+---
+
 ### 3. **MainApplication.kt** - React Application Host
 
 Configures the React Native runtime and packages.
 
 ```kotlin
-
 import android.app.Application
 import com.facebook.react.ReactApplication
 import com.facebook.react.ReactHost
@@ -463,6 +484,8 @@ class MainApplication : Application(), ReactApplication {
 - Creates and manages the React Native host
 - Registers native modules and packages
 - Initializes React Native runtime
+
+---
 
 ### 4. **AndroidManifest.xml** - Android Manifest file
 
@@ -592,12 +615,20 @@ The Metro bundler will start on port 8081 by default.
 
 ---
 
-## Points to remember
+## Points to Remember
 
-- ### If you want to launch Manage App SDK in app while development:
-  - The dev server has to be running (start the server by running `yarn react-native run-android`)
-  - The android project has to be build using the command mentioned in the point above
-- This integration was done by the default versions set by Android Studio while creating a new android project (Android studio version: **Android Studio Narwhal Feature Drop | 2025.1.2 Patch 1**)
+### If you want to launch Manage App SDK in app while development:
+
+- The dev server has to be running (start the server by running `yarn react-native run-android`)
+- The android project has to be build using the command mentioned in the point above
+
+### Integration Details
+
+This integration was done by the default versions set by Android Studio while creating a new android project:
+
+- **Android Studio version:** Android Studio Narwhal Feature Drop | 2025.1.2 Patch 1
+
+---
 
 ## Resources
 
