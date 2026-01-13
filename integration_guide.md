@@ -2,7 +2,7 @@
 
 ## Integrating React Native into Native Android Application
 
-**Project Name:** Manage  
+**Project Name:** ManageAppHost  
 **React Native Version:** 0.83.1  
 **Target SDK:** Android 14+ (API 36+)  
 **Minimum SDK:** Android 7 (API 24+)  
@@ -36,9 +36,8 @@ integratedReactNativeProject/
 │   │   │   │   │   ├── MainActivity.kt
 │   │   │   │   │   ├── MyReactActivity.kt
 │   │   │   │   │   ├── MainApplication.kt
-│   │   │   │   │   └── react_native_module/
-│   │   │   │   │       ├── ReactActivityModule.kt
-│   │   │   │   │       └── ReactActivityPackage.kt
+│   │   │   │   │   ├── ReactActivityModule.kt
+│   │   │   │   │   └── ReactActivityPackage.kt
 │   │   │   │   ├── AndroidManifest.xml
 │   │   │   │   └── res/
 │   │   │   ├── androidTest/
