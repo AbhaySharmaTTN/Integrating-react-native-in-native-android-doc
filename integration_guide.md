@@ -30,26 +30,7 @@
 
 ```
 integratedReactNativeProject/
-├── android/                           # this will store the existing android project
-│   ├── app/
-│   │   ├── src/
-│   │   │   ├── main/
-│   │   │   │   ├── java/com/example/naitveandroidma/
-│   │   │   │   │   ├── MainActivity.kt
-│   │   │   │   │   ├── MyReactActivity.kt
-│   │   │   │   │   ├── MainApplication.kt
-│   │   │   │   │   ├── ReactActivityModule.kt
-│   │   │   │   │   └── ReactActivityPackage.kt
-│   │   │   │   ├── AndroidManifest.xml
-│   │   │   │   └── res/
-│   │   │   ├── androidTest/
-│   │   │   └── test/
-│   │   ├── build.gradle                    # App-level gradle config
-│   │   └── proguard-rules.pro
-│   ├── build.gradle                        # Project-level gradle config
-│   ├── gradle.properties
-│   ├── settings.gradle
-│   └── gradle/wrapper/
+├── android/   # this will store the existing android project 
 ├── index.js                           # React Native entry point
 ├── babel.config.js                    # Babel configuration
 ├── metro.config.js                    # Metro bundler config
